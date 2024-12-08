@@ -1,10 +1,4 @@
 {
-  "scripts": {
-    "dev": "next dev", // Starts the development server
-    "build": "next build", // Builds the project for production
-    "start": "next start", // Starts the production server
-    "lint": "next lint" // Runs the Next.js linter
-  },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
@@ -19,5 +13,11 @@
     "react-dom": "^19.0.0",
     "react-toastify": "^10.0.6",
     "tailwindcss": "^3.4.16"
+  },
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   }
 }
