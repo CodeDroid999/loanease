@@ -19,5 +19,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "devDependencies": {
+    "typescript": "5.7.2"
   }
 }
