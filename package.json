@@ -1,4 +1,10 @@
 {
+  "scripts": {
+    "dev": "next dev", // Starts the development server
+    "build": "next build", // Builds the project for production
+    "start": "next start", // Starts the production server
+    "lint": "next lint" // Runs the Next.js linter
+  },
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.2.0",
