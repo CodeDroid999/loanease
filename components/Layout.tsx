@@ -1,10 +1,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { Button } from "@/components/ui/button"
-import { useAuth } from '@/contexts/AuthContext'
+import Button from "../components/ui/button"
+import { useAuth } from '../contexts/AuthContext'
 import { signOut } from 'firebase/auth'
-import { auth } from '@/lib/firebase'
+import { auth } from '../firebase'
 import { Bell } from 'lucide-react'
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {

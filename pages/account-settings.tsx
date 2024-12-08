@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "react-hot-toast"
 import { useAuth } from '@/contexts/AuthContext'
 import { updatePassword, updateEmail, User } from 'firebase/auth'
 import { Loader2 } from 'lucide-react'
@@ -91,12 +91,12 @@ export default function AccountSettingsPage() {
           <h2 className="text-xl font-semibold">Update Email</h2>
           <div>
             <Label htmlFor="newEmail">New Email</Label>
-            <Input 
-              id="newEmail" 
-              type="email" 
-              value={newEmail} 
-              onChange={(e) => setNewEmail(e.target.value)} 
-              required 
+            <Input
+              id="newEmail"
+              type="email"
+              value={newEmail}
+              onChange={(e) => setNewEmail(e.target.value)}
+              required
               disabled={loading}
             />
           </div>
@@ -116,23 +116,23 @@ export default function AccountSettingsPage() {
           <h2 className="text-xl font-semibold">Update Password</h2>
           <div>
             <Label htmlFor="newPassword">New Password</Label>
-            <Input 
-              id="newPassword" 
-              type="password" 
-              value={newPassword} 
-              onChange={(e) => setNewPassword(e.target.value)} 
-              required 
+            <Input
+              id="newPassword"
+              type="password"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
               disabled={loading}
             />
           </div>
           <div>
             <Label htmlFor="confirmPassword">Confirm New Password</Label>
-            <Input 
-              id="confirmPassword" 
-              type="password" 
-              value={confirmPassword} 
-              onChange={(e) => setConfirmPassword(e.target.value)} 
-              required 
+            <Input
+              id="confirmPassword"
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
               disabled={loading}
             />
           </div>

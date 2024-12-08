@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "react-hot-toast"
 import { db } from '@/lib/firebase'
 import { collection, addDoc } from 'firebase/firestore'
 import { useAuth } from '@/contexts/AuthContext'

@@ -1,9 +1,9 @@
 import React, { createContext, useState, useEffect, useContext } from 'react'
-import { auth } from '@/lib/firebase'
-import { 
-  onAuthStateChanged, 
-  User, 
-  signInWithEmailAndPassword, 
+import { auth } from '../firebase'
+import {
+  onAuthStateChanged,
+  User,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signInWithPhoneNumber,
   ApplicationVerifier,
@@ -22,10 +22,10 @@ type AuthContextType = {
 const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
-  signInWithEmail: async () => {},
-  signUpWithEmail: async () => {},
-  signInWithPhone: async () => {} as Promise<ConfirmationResult>,
-  confirmPhoneSignIn: async () => {},
+  signInWithEmail: async () => { },
+  signUpWithEmail: async () => { },
+  signInWithPhone: async () => { throw new Error('signInWithPhone function is not implemented') },
+  confirmPhoneSignIn: async () => { },
 })
 
 export const useAuth = () => useContext(AuthContext)
@@ -51,7 +51,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     await createUserWithEmailAndPassword(auth, email, password)
   }
 
-  const signInWithPhone = async (phoneNumber: string, appVerifier: ApplicationVerifier) => {
+  const signInWithPhone = async (phoneNumber: string, appVerifier: ApplicationVerifier): Promise<ConfirmationResult> => {
     return signInWithPhoneNumber(auth, phoneNumber, appVerifier)
   }
 
@@ -70,4 +70,3 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
 }
-

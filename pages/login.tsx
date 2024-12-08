@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
+import { useToast } from "react-hot-toast"
 import { useAuth } from '@/contexts/AuthContext'
 import { Loader2 } from 'lucide-react'
 import { RecaptchaVerifier } from 'firebase/auth'
@@ -90,7 +90,7 @@ export default function LoginPage() {
     }
   }
 
-  const handleVerifyCode = async(e: React.FormEvent) => {
+  const handleVerifyCode = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
 
@@ -139,12 +139,12 @@ export default function LoginPage() {
           <form onSubmit={handleVerifyCode} className="space-y-4">
             <div>
               <Label htmlFor="verificationCode">Verification Code</Label>
-              <Input 
-                id="verificationCode" 
-                type="text" 
-                value={verificationCode} 
-                onChange={(e) => setVerificationCode(e.target.value)} 
-                required 
+              <Input
+                id="verificationCode"
+                type="text"
+                value={verificationCode}
+                onChange={(e) => setVerificationCode(e.target.value)}
+                required
                 disabled={loading}
               />
             </div>
@@ -163,12 +163,12 @@ export default function LoginPage() {
           <form onSubmit={handlePhoneLogin} className="space-y-4">
             <div>
               <Label htmlFor="phoneNumber">Phone Number</Label>
-              <Input 
-                id="phoneNumber" 
-                type="tel" 
-                value={phoneNumber} 
-                onChange={(e) => setPhoneNumber(e.target.value)} 
-                required 
+              <Input
+                id="phoneNumber"
+                type="tel"
+                value={phoneNumber}
+                onChange={(e) => setPhoneNumber(e.target.value)}
+                required
                 disabled={loading}
               />
             </div>
@@ -188,23 +188,23 @@ export default function LoginPage() {
         <form onSubmit={handleEmailLogin} className="space-y-4">
           <div>
             <Label htmlFor="email">Email</Label>
-            <Input 
-              id="email" 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)} 
-              required 
+            <Input
+              id="email"
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
               disabled={loading}
             />
           </div>
           <div>
             <Label htmlFor="password">Password</Label>
-            <Input 
-              id="password" 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)} 
-              required 
+            <Input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
               disabled={loading}
             />
           </div>

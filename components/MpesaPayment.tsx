@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { useToast } from "@/components/ui/use-toast"
+import Button from "../components/ui/button"
+import Input from "../components/ui/input"
+import Label from "../components/ui/label"
+import { useToast } from "../components/ui/useToast"
 
 interface MpesaPaymentProps {
   amount: number
@@ -12,25 +12,23 @@ interface MpesaPaymentProps {
 const MpesaPayment: React.FC<MpesaPaymentProps> = ({ amount, onPaymentComplete }) => {
   const [phoneNumber, setPhoneNumber] = useState('')
   const [loading, setLoading] = useState(false)
-  const { toast } = useToast()
+  const { showToast } = useToast()  // Use showToast to trigger toasts
 
   const handlePayment = async () => {
     setLoading(true)
-    // Here you would integrate with the M-Pesa API
-    // This is a mock implementation
+    // Simulate M-Pesa API call
     try {
-      // Simulate API call
       await new Promise(resolve => setTimeout(resolve, 2000))
-      toast({
+      showToast({
         title: "Payment Initiated",
         description: "Please check your phone for the M-Pesa prompt.",
       })
       onPaymentComplete()
     } catch (error) {
-      toast({
+      showToast({
         title: "Payment Failed",
         description: "There was an error processing your payment. Please try again.",
-        variant: "destructive",
+        variant: "destructive", // Now variant is accepted
       })
     } finally {
       setLoading(false)
@@ -40,7 +38,7 @@ const MpesaPayment: React.FC<MpesaPaymentProps> = ({ amount, onPaymentComplete }
   return (
     <div className="space-y-4">
       <Label htmlFor="phoneNumber">M-Pesa Phone Number</Label>
-      <Input
+      <input
         id="phoneNumber"
         type="tel"
         placeholder="e.g., 0712345678"
@@ -55,4 +53,3 @@ const MpesaPayment: React.FC<MpesaPaymentProps> = ({ amount, onPaymentComplete }
 }
 
 export default MpesaPayment
-
