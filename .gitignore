@@ -12,7 +12,8 @@
 # next.js
 /.next/
 /out/
-
+# Ignore Next.js build and cache files
+.next/
 # production
 /build
 /studio/dist
